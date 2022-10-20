@@ -1,0 +1,207 @@
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --font: 'Roboto', sans-serif;
+    --background-color: #006400;
+    --text-color: #fff;
+    --cross-color: #ff0000;
+    --circle-color: #0000ff;
+    --cell-color: #ffff00;
+    --text-btn-color: #000;
+    --border-cell-color: #333;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: var(--font);
+}
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    height: 100vh;
+    letter-spacing: 1px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input {
+    border: none;
+    outline: none;
+}
+
+.game {
+    background-color: var(--background-color);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.game-heading {
+    z-index: 1;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-color);
+    padding-top: 50px;
+}
+
+.game-status,
+.game-turn {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 20px auto 10px;
+}
+
+.turn {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.turn-x,
+.turn-o {
+    position: relative;
+}
+
+.turn-x::after {
+    position: absolute;
+    content: 'X';
+    color: var(--cross-color);
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.turn-o::after {
+    position: absolute;
+    content: 'O';
+    color: var(--circle-color);
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.cell-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 4px;
+    column-gap: 4px;
+    margin: 40px auto 20px auto;
+    width: 300px;
+    height: 300px;
+}
+
+.cell-item {
+    border: 1px solid var(--border-cell-color);
+    background-color: var(--cell-color);
+}
+
+.cell-item:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.clicked:hover {
+    cursor: default !important;
+    background-color: var(--cell-color);
+}
+
+.win,
+.win:hover {
+    background-color: var(--text-color);
+    opacity: 0.8;
+}
+
+.cross {
+    position: relative;
+    color: var(--cross-color);
+    font-size: 3.6rem;
+    font-weight: 800;
+}
+
+.cross::before {
+    content: 'X';
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.circle {
+    position: relative;
+    color: var(--circle-color);
+    font-size: 3.6rem;
+    font-weight: 800;
+}
+
+.circle::before {
+    content: 'O';
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.game-button {
+    text-align: center;
+}
+
+.button {
+    display: none;
+    color: var(--text-btn-color);
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--text-color);
+    padding: 16px 24px;
+    margin-top: 24px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.button--show {
+    display: inline-block;
+}
+
+.game-description {
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    color: var(--text-color);
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: 1.6px;
+}
